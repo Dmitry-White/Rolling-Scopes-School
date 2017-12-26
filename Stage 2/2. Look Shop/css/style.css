@@ -1,0 +1,811 @@
+html, body {
+    height: 100%;
+}
+body {
+    font-family: HelveticaL, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #999999;
+    background-color: #ffffff;
+}
+section h2 {
+    color: #414141;
+}
+.container {
+    max-width: 970px;
+}
+@font-face {
+    font-family: HelveticaL;
+    src: url(../fonts/HelveticaLTStd-Light.otf);
+}
+/* ----------------------------- Header ------------------------------------- */
+/* ---------------------- Section Header-Top ------------------------- */
+.header-top {
+    background: black;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+/* Flexbox for sides squeezing */
+.header-top .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: none;
+}
+.header-top .header-right {
+    padding: 0;
+}
+
+.header__custom-care {
+    padding: 10px;
+}
+
+.header__currency {
+    border-left: 2px solid rgb(68, 68, 68);
+    text-align: center;
+}
+.header__currency:hover {
+    cursor: pointer;
+}
+.header__currency p {
+    margin: 0;
+    padding: 10px;
+}
+
+.header__account {
+    border-right: 2px solid rgb(68, 68, 68);
+    border-left: 2px solid rgb(68, 68, 68);
+    padding: 10px;
+    text-align: center;
+}
+
+.header__search {
+    border-right: 2px solid rgb(68, 68, 68);
+    position: relative;
+    padding: 10px;
+    text-align: center;
+}
+.header__search form {
+    display: none;
+    top: 10px;
+    left: 0;
+    position: absolute;
+    z-index: 111;
+    color: black;
+}
+.header__search:hover form{
+    display: block;
+}
+.search {
+    border-right: 1px solid #d9d9d9;
+    border-left: 1px solid #d9d9d9;
+    border-bottom: none;
+    border-top: none;
+    height: 35px;
+    padding: 0 5px 0 35px;
+}
+.search {
+    width: 20px;
+}
+.pull-right {
+    float: right !important;
+}
+
+/* ------------------------------------------------------------------- */
+
+/* --------------------- Section Header-Navbar ----------------------- */
+.navbar {
+    display: flex;
+    padding: 20px 0;
+    margin-bottom: 0;
+    border: none;
+    background-color: white;
+}
+/* Navbar Flexbox Container */
+.navbar__flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar__flex .header-cart {
+    margin: 0;
+}
+.header-cart__opened {
+    padding: 10px;
+    width: 233px;
+}
+.header-cart__opened button {
+    background: #fd926d;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0px 3px 0px 0px rgba(221, 107, 68, 1);
+}
+.navbar__flex .navbar-menu p {
+    display: none;
+}
+.navbar__flex .navbar-menu .icon-bar {
+    background: white;
+}
+.navbar__flex:after,
+.navbar__flex:before {
+    content: none;
+}
+
+/* Menu Points */
+.navbar-default .navbar-nav > li > a {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    padding: 10px 15px;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: black;
+    background: #fd926d;
+}
+.navbar-default .navbar-nav > .active > a {
+    color: white;
+    background: black;
+}
+
+/* Cart */
+.header-cart {
+    padding: 0;
+}
+.header-cart__button,
+.header-cart__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #d6d6d6;
+    color: #949393;
+    background: none;
+}
+.header-cart__info {
+    border-top: none;
+}
+/* ------------------------------------------------------------------- */
+
+/* --------------------- Section main-slider ----------------------- */
+.main-slider {
+    padding: 0;
+}
+.main-slider h1 {
+    display: none;
+}
+.main-slider .slider-image {
+    width: 100%;
+    height: auto;
+}
+.main-slider .carousel-inner {
+    padding-bottom: 60px;
+}
+
+/* Slider Progress Bar */
+.progress {
+    position: relative;
+    bottom: 10px;
+    left: 0;
+    margin-bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: black;
+    opacity: 0.3;
+}
+
+/* Slider Item */
+.carousel-item {
+    position: relative;
+}
+.carousel-item .slider-text {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+}
+.carousel-item .slider-text:hover {
+    cursor: pointer;
+}
+
+/* Arrows */
+.carousel-control {
+    color: black;
+    top: 50%;
+    height: 120px;
+    width: 30px;
+    transform: translateY(-50%);
+}
+.carousel-control span {
+    margin-top: -15px !important;
+    font-size: 20px;
+}
+.carousel-control.left {
+    background: none;
+    background: white;
+}
+.carousel-control.right {
+    background: none;
+    background: white;
+}
+.carousel-indicators {
+    bottom: 10px;
+}
+.carousel-indicators li {
+    background: #867a76;
+}
+.carousel-indicators .active {
+    background: #fd926d;
+}
+
+.carousel-list {
+    display: flex;
+    align-items: center;
+}
+.carousel-list .product-title {
+    color: #4a4a4a;
+    font-size: 24px;
+}
+.carousel-list .product-price {
+    color: #fd926d;
+    font-size: 36px;
+}
+.carousel-list .product-description {
+    color: #8f8f8f;
+    font-size: 12px;
+    line-height: 18px;
+}
+/* ------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/* --------------------------- Wrapper Div ---------------------------------- */
+.wrapper {
+    margin-bottom: -278px;
+}
+.wrapper:after {
+  content: "";
+  display: block;
+}
+
+/* ---------------------- Section Contact ------------------------- */
+.contact {
+    background: #ededed;
+    color: #6c6c6c;
+    font-size: 12px;
+}
+.contact__mail-input {
+    padding: 5px;
+    margin-left: 10px;
+    font-style: italic;
+    line-height: 15px;
+    height: 32px;
+}
+.contact__feed {
+    line-height: 55px;
+}
+.contact__feed label {
+    margin-bottom: 0;
+}
+.contact button {
+    padding: 9px;
+    color: white;
+    background: #fd926d;
+    border: none;
+    border-bottom: 3px solid #dd6b44;
+    margin-left: -4px;
+    top: -1px;
+}
+.contact__icons {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    width: 55px;
+    height: 53px;
+    line-height: 55px;
+}
+.contact__icons:hover {
+    background: white;
+}
+/* ---------------------------------------------------------------- */
+
+/* ----------------------- Section Promo -------------------------- */
+.promo {
+    padding: 50px 0;
+}
+.promo-image {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.promo-text {
+    position: absolute;
+}
+.promo .col-md-12,
+.promo .col-md-6,
+.promo .col-sm-12,
+.promo .col-sm-6 {
+    padding: 0;
+    border: 1px solid #fff
+}
+.promo .col-md-12 .row,
+.promo .col-md-6 .row,
+.promo .col-sm-12 .row,
+.promo .col-sm-6 .row {
+    margin: 0
+}
+.promo-text1 {
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+}
+.promo-text2 {
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+}
+.promo-text3 {
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.promo-text4 {
+    top: 30%;
+    left: 10%;
+}
+.promo-text:hover {
+    cursor: pointer;
+}
+/* ---------------------------------------------------------------- */
+
+/* ------------------------ Section Sales ------------------------- */
+.sales-tabs {
+    text-transform: uppercase;
+}
+.sales-tabs .nav-tabs>li>a {
+    color: #000
+}
+.sales-tabs .nav-tabs>li.active>a,
+.sales-tabs .nav-tabs>li.active>a:focus,
+.sales-tabs .nav-tabs>li.active>a:hover {
+    background: #fd926d;
+    color: white;
+}
+.sales-tabs .form-control {
+    background: #f4845d;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: none;
+}
+
+.sales-content {
+    position: relative;
+    background: #fd926d;
+}
+/* Carousel Controls */
+.sales-content .carousel-control {
+    left: auto;
+    width: 50px;
+    height: 50px;
+    background: #f2f2f2;
+    opacity: 1;
+}
+.sales-content .carousel-control span {
+    font-size: 20px;
+    color: black;
+    font-weight: normal;
+}
+.sales-content .carousel-control:hover {
+    background: #fd926d;
+}
+.sales-content .carousel-control:hover span {
+    color: white;
+}
+.sales-content .carousel-control.left {
+    top: -25px;
+    right: 50px;
+}
+.sales-content .carousel-control.right {
+    top: -25px;
+    right: 0;
+}
+
+.sales-tab {
+    padding: 30px 0;
+    position: relative;
+    overflow: hidden;
+}
+.sales-tab-carousel {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.sales-list,
+.sales-list-2,
+.sales-list-3,
+.sales-list-4,
+.sales-list-5 {
+    position: relative;
+    left: 0px;
+    top: 0;
+    width: 1000000px;
+}
+
+.sales-item {
+    padding: 15px;
+    float: left;
+}
+.sales-item .center-block {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.sales-item .badge-shopit {
+    display: none;
+}
+.sales-item .sale-badges {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 11;
+    /*@media @xs {
+        width: 20%;
+        height: auto;
+    }*/
+}
+.sales-item__info {
+    padding: 20px 0;
+    background: white;
+    text-transform: uppercase;
+}
+.sales-item__info a {
+    color: #373737;
+}
+.sales-item-button {
+    height: 50px;
+    margin-top: 10px;
+    padding: 15px;
+    color: white;
+    font-size: 115%;
+    background: #fd926d;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0px 3px 0px 0px rgba(221, 107, 68, 1);
+}
+.sales-item:hover {
+    -webkit-transform: scale(1.1, 1.1);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 550ms;
+    -moz-transform: scale(1.1, 1.1);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 550ms;
+}
+.sales-item:hover .badge-shopit {
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 11;
+    cursor: pointer;
+}
+
+/* Button for Mobile version */
+.button-load {
+    padding: 20px 50px;
+    color: white;
+    background: black;
+}
+.button-load:hover {
+    color: white;
+}
+/* ---------------------------------------------------------------- */
+
+/* --------------------- Section Clearance ------------------------ */
+.clearence {
+    padding: 30px 0;
+}
+.clearence .sales-lists {
+    padding: 20px 0;
+}
+.clearence h2 {
+    position: relative;
+}
+.clearence h2:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+    width: 35%;
+    height: 1px;
+    background: #d8d8d8;
+}
+.clearence h2:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: -1;
+    width: 35%;
+    height: 1px;
+    background: #d8d8d8;
+}
+.clearence .sales-item__info {
+    background: #f7f7f7;
+}
+
+/* ---------------------------------------------------------------- */
+
+/* ---------------------- Section Brands -------------------------- */
+.brands {
+    padding: 30px 0;
+    border-bottom: 1px solid #d8d8d8;
+}
+.brands h2 {
+    position: relative;
+    font-size: 15px;
+}
+.brands h2:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+    width: 40%;
+    height: 1px;
+    background: #d8d8d8;
+}
+.brands h2:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: -1;
+    width: 40%;
+    height: 1px;
+    background: #d8d8d8;
+}
+.brands-lists {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+/* ---------------------------------------------------------------- */
+
+/* ---------------------- Section About --------------------------- */
+.about {
+    padding: 30px 0;
+}
+.about h2 {
+    font-size: 24px;
+}
+.about p {
+    color: #999999;
+    font-size: 14px;
+}
+/* ---------------------------------------------------------------- */
+
+/* ---------------------- Section Payment ---------------------------- */
+.payment {
+    background: #f7f7f7;
+    color: #999999;
+}
+/* ------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/* ----------------------------- Footer ------------------------------------- */
+/* ---------------- Section Footer-Menu --------------------- */
+.footer-menu {
+    margin-top: 10px;
+    width: 100%;
+    background: black;
+}
+.footer-menu button {
+    float: left;
+    border: 1px solid black;
+}
+.footer-menu .icon-bar {
+    background: white;
+}
+/* ---------------------------------------------------------- */
+
+/* ---------------- Section Footer  --------------------- */
+.footer {
+    background: #ededed;
+}
+.footer-navigation {
+    font-size: 12px;
+    color: #544f4d;
+}
+.footer-navigation__items {
+    margin: 20px 0;
+}
+.footer-navigation__title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.footer-navigation a {
+    display: block;
+    color: #544f4d;
+    text-align: left;
+}
+.footer-navigation a.footer-navigation__social {
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 5px;
+    text-align: left;
+}
+/* ------------------------------------------------------ */
+
+/* ---------------- Section Footer-Bottom  --------------------- */
+.wrapper:after {
+    height: 278px;
+}
+.footer-bottom {
+    padding: 25px 0;
+    background: black;
+}
+.footer-bottom__copyright {
+    text-align: right;
+}
+.footer-bottom__copyright p {
+    margin: 0;
+    font-size: 11px;
+}
+.footer-bottom .container {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+}
+.footer-bottom .footer-link a {
+    padding: 0 5px;
+    font-size: 11px;
+    color: #8d8d8d;
+}
+
+.footer-bottom .footer-link a:first-child {
+    border-right: 1px solid #8d8d8d;
+}
+.footer-bottom .footer-link a:last-child {
+    border-left: 1px solid #8d8d8d;
+}
+.footer-bottom .footer-link a:nth-child(3) {
+    border-right: 1px solid #8d8d8d;
+    border-left: 1px solid #8d8d8d;
+}
+/* ------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 991px) {
+    .navbar__flex .navbar__logo {
+        order: 1;
+    }
+    .navbar__flex .header-cart {
+        order: 2;
+    }
+    .navbar__flex .navbar-menu {
+        width: 100%;
+        order: 3;
+        margin-top: 20px;
+        background: #fd926d;
+    }
+    .navbar__flex .navbar-menu p {
+        display: inline-block;
+        line-height: 50px;
+        margin: 0;
+        margin-left: 20px;
+        color: white;
+    }
+    .navbar__flex .navbar-collapse {
+        order: 4;
+        width: 100%;
+        margin: 0;
+    }
+    .navbar-default .navbar-nav > li > a {
+        text-align: center;
+    }
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+    }
+    .carousel-item .slider-text {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+    }
+    .carousel-item .slider-text img {
+        width: 70%;
+        height: auto;
+    }
+    .promo-text1 {
+        left: 40%;
+    }
+    .clearence h2:before {
+        width: 25%;
+    }
+    .clearence h2:after {
+        width: 25%;
+    }
+    .footer {
+        padding: 25px 0 35px;
+    }
+    .footer-bottom {
+        margin-top: -10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header-top .container,
+    .header-top,
+    .contact__feed {
+        padding: 0;
+    }
+    .header__custom-care {
+        background: white;
+        color: #838383;
+        text-align: center;
+    }
+    .header__search {
+        border-right: none;
+    }
+    .header__currency {
+        border-left: none;
+    }
+    .navbar__flex {
+        width: 100%;
+    }
+    .contact__social {
+        text-align: center;
+        padding: 0;
+    }
+    .contact__mail-input {
+        width: 90%;
+        margin-left: 0;
+    }
+    .contact button {
+        width: 10%;
+    }
+    .sales-list,
+    .sales-list-2,
+    .sales-list-3,
+    .sales-list-4,
+    .sales-list-5 {
+        width: 100%;
+    }
+    .sales-item {
+        display: none;
+    }
+    .sales-item .badge-shopit {
+        width: 60%;
+        height: auto;
+    }
+    .sales-item .sale-badges {
+        width: 20%;
+        height: auto;
+    }
+    .footer {
+        padding: 25px 0 35px;
+    }
+    .footer-bottom {
+        margin-top: -10px;
+    }
+    .footer-bottom .footer-link a:first-child,
+    .footer-bottom .footer-link a:last-child,
+    .footer-bottom .footer-link a:nth-child(3) {
+        border: none;
+    }
+}
