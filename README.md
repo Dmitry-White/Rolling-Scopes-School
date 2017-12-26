@@ -1,7 +1,7 @@
 <h1 align="center">Rolling Scopes School</h1>
 
 <div align="center">
-  <sub>Author: 
+  <sub>Student: 
   <a href="https://github.com/Dmitry-White">Dmitry White</a>
   <br>
   <br>
