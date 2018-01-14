@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
 import Grid from 'material-ui/Grid';
 
 import ProgressBar from '../../components/body/ProgressBar';
+import AddForm from '../../components/body/AddForm';
 import CategoryList from '../../components/body/CategoryList';
 import TaskList from '../../components/body/TaskList';
 
@@ -57,18 +57,16 @@ class Body extends Component {
 
     render() {
         return (
-            <Grid item xs={12} className="App-body">
-                <Grid container>
-                    <Grid item xs={12}>
+            <Grid item xs={12}>
+                <div className="App-body">
+                    <Grid container>
                         <ProgressBar state={this.state}/>
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
+                        <AddForm name="Category" />
+                        <AddForm name="Task" />
                         <CategoryList state={this.state} open={this.handleOpen}/>
-                    </Grid>
-                    <Grid item xs={12} sm={9}>
                         <TaskList state={this.state} toggle={this.handleToggle} />
                     </Grid>
-                </Grid>
+                </div>
             </Grid>
         );
     };

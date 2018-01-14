@@ -14,17 +14,19 @@ class Header extends Component {
 
     render() {
         return(
-            <Grid item xs={12} className="App-header">
-                <Paper elevation={2}>
-                    <AppBar position="static" color="inherit">
-                        <Toolbar>
-                            <Typography type="title" color="inherit" className="Header-title">
-                                To-Do List
-                            </Typography>
-                            <ShowDoneCheckbox />
-                            <SearchBox />
-                        </Toolbar>
-                    </AppBar>
+            <Grid item xs={12}>
+                <Paper elevation={1}>
+                    <div className="App-header">
+                        <AppBar position="static" color="inherit">
+                            <Toolbar>
+                                <Typography type="title" color="inherit" className="Header-title">
+                                    To-Do List
+                                </Typography>
+                                <ShowDoneCheckbox />
+                                <SearchBox />
+                            </Toolbar>
+                        </AppBar>
+                    </div>
                 </Paper>
             </Grid>
         );
