@@ -11,7 +11,6 @@ import ShowDoneCheckbox from '../../components/header/ShowDoneCheckbox';
 import './Header.css';
 
 class Header extends Component {
-
     render() {
         return(
             <Grid item xs={12}>
@@ -19,7 +18,10 @@ class Header extends Component {
                     <div className="App-header">
                         <AppBar position="static" color="inherit">
                             <Toolbar>
-                                <Typography type="title" color="inherit" className="Header-title">
+                                <Typography
+                                    type="title"
+                                    className="Header-title"
+                                >
                                     To-Do List
                                 </Typography>
                                 <ShowDoneCheckbox />
