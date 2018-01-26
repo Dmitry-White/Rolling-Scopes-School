@@ -14,14 +14,16 @@ const taskList = (props) => {
                     <List >
                         <Task
                             orderNumber={1}
-                            clickHandler={props.toggle(1)}
-                            checkHandler={props.state.checked.indexOf(1) !== -1}
+                            checked={props.checked.indexOf(1) !== -1}
+                            handleCheck={props.handleCheck(1)}
+                            handleEdit={props.handleEdit}
                             taskText={"Task 1"}
                         />
                         <Task
                             orderNumber={2}
-                            clickHandler={props.toggle(2)}
-                            checkHandler={props.state.checked.indexOf(2) !== -1}
+                            checked={props.checked.indexOf(2) !== -1}
+                            handleCheck={props.handleCheck(2)}
+                            handleEdit={props.handleEdit}
                             taskText={"Task 2"}
                         />
 

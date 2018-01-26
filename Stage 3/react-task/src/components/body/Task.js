@@ -8,12 +8,12 @@ import EditIcon from 'material-ui-icons/Edit';
 const task = (props) => {
 
     return (
-        <ListItem key={props.orderNumber} button onClick={props.clickHandler}>
-            <Checkbox checked={props.checkHandler} />
+        <ListItem key={props.orderNumber} button onClick={props.handleCheck}>
+            <Checkbox checked={props.checked} />
             <ListItemText primary={props.taskText} />
             <ListItemSecondaryAction>
                 <IconButton aria-label="Edit">
-                    <EditIcon onClick={()=>console.log("!")}/>
+                    <EditIcon onClick={props.handleEdit}/>
                 </IconButton>
             </ListItemSecondaryAction>
         </ListItem>

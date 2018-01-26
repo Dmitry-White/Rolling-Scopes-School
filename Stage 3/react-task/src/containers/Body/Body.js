@@ -19,7 +19,7 @@ class Body extends Component {
         this.setState({ open: !this.state.open });
     };
 
-    handleToggle = value => () => {
+    handleCheck = value => () => {
         const { checked } = this.state;
         const currentIndex = checked.indexOf(value);
         const newChecked = [...checked];
@@ -34,6 +34,10 @@ class Body extends Component {
             checked: newChecked,
         });
     };
+
+    handleEdit = () => {
+        console.log("Edit!");
+    }
 
     componentDidMount() {
         this.timer = setInterval(this.progress, 500);
@@ -64,7 +68,11 @@ class Body extends Component {
                         <AddForm name="Category" />
                         <AddForm name="Task" />
                         <CategoryList state={this.state} open={this.handleOpen}/>
-                        <TaskList state={this.state} toggle={this.handleToggle} />
+                        <TaskList
+                            checked={this.state.checked}
+                            handleCheck={this.handleCheck}
+                            handleEdit={this.handleEdit}
+                        />
                     </Grid>
                 </div>
             </Grid>
