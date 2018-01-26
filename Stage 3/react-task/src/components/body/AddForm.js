@@ -6,8 +6,10 @@ import TextField from 'material-ui/TextField';
 import Add from 'material-ui-icons/Add';
 
 const addField = (props) => {
-    var text_size, button_size, sm_size, text_placeholder, form_class, text_class;
+    var text_size, button_size, sm_size, text_placeholder,
+        form_class, text_class, input_value;
     if (props.name === "Category") {
+        input_value = props.categoryValue;
         sm_size = 3;
         text_size = 9
         button_size = 3
@@ -15,6 +17,7 @@ const addField = (props) => {
         form_class = "Body-addCategory"
         text_class = "Add Category"
     } else if (props.name === "Task") {
+        input_value = props.taskValue;
         sm_size = 9;
         text_size = 11
         button_size = 1
@@ -29,13 +32,20 @@ const addField = (props) => {
                     <Grid container>
                         <Grid item xs={12} sm={text_size}>
                             <TextField
-                                placeholder={text_placeholder}
-                                className={text_class}
                                 fullWidth
+                                value={input_value}
+                                className={text_class}
+                                placeholder={text_placeholder}
+                                onChange={(e) => props.handleInputChange(e)}
                             />
                         </Grid>
                         <Grid item xs={12} sm={button_size}>
-                            <Button color="primary" fab mini type="submit">
+                            <Button
+                                fab
+                                mini
+                                color="primary"
+                                onClick={props.handleAdd}
+                            >
                                 <Add />
                             </Button>
                         </Grid>

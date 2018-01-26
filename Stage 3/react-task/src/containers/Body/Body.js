@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Grid from 'material-ui/Grid';
+import uuid from 'uuid';
 
 import ProgressBar from '../../components/body/ProgressBar';
 import AddForm from '../../components/body/AddForm';
@@ -10,9 +11,50 @@ import './Body.css';
 
 class Body extends Component {
     state = {
+        categoryInput: "",
+        categories: [],
+        taskInput: "",
+        tasks: [],
         completed: 0,
         open: false,
         checked: [0],
+    };
+
+    handleCategoryInput = (e) => {
+        this.setState({ categoryInput: e.target.value });
+    };
+
+    handleTaskInput = (e) => {
+        this.setState({ taskInput: e.target.value });
+    };
+
+    handleCategoryAdd = () => {
+        if (this.state.categoryInput === "") return;
+        this.setState({
+            categories: [
+              ...this.state.categories,
+              {
+                id:uuid(),
+                categoryText:this.state.categoryInput,
+              }
+            ],
+            categoryInput: ""
+        });
+    };
+
+    handleTaskAdd = () => {
+        if (this.state.taskInput === "") return;
+        this.setState({
+            tasks: [
+              ...this.state.tasks,
+              {
+                id:uuid(),
+                taskText:this.state.taskInput,
+                checked: false,
+              }
+            ],
+            taskInput: ""
+        });
     };
 
     handleOpen = () => {
@@ -37,6 +79,7 @@ class Body extends Component {
 
     handleEdit = () => {
         console.log("Edit!");
+        console.log(this.state);
     }
 
     componentDidMount() {
@@ -65,10 +108,21 @@ class Body extends Component {
                 <div className="App-body">
                     <Grid container>
                         <ProgressBar state={this.state}/>
-                        <AddForm name="Category" />
-                        <AddForm name="Task" />
+                        <AddForm
+                            name="Category"
+                            categoryValue={this.state.categoryInput}
+                            handleInputChange={this.handleCategoryInput}
+                            handleAdd={this.handleCategoryAdd}
+                        />
+                        <AddForm
+                            name="Task"
+                            taskValue={this.state.taskInput}
+                            handleInputChange={this.handleTaskInput}
+                            handleAdd={this.handleTaskAdd}
+                        />
                         <CategoryList state={this.state} open={this.handleOpen}/>
                         <TaskList
+                            tasks={this.state.tasks}
                             checked={this.state.checked}
                             handleCheck={this.handleCheck}
                             handleEdit={this.handleEdit}

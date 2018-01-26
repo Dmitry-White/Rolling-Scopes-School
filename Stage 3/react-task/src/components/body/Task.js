@@ -8,7 +8,7 @@ import EditIcon from 'material-ui-icons/Edit';
 const task = (props) => {
 
     return (
-        <ListItem key={props.orderNumber} button onClick={props.handleCheck}>
+        <ListItem key={props.id} button onClick={props.handleCheck}>
             <Checkbox checked={props.checked} />
             <ListItemText primary={props.taskText} />
             <ListItemSecondaryAction>

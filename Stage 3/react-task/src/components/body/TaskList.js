@@ -6,32 +6,32 @@ import List from 'material-ui/List';
 import Task from './Task';
 
 const taskList = (props) => {
+    let tasks = props.tasks.map((task) => {
+        return (
+            <Task
+                key={task.id}
+                id={task.id}
+                taskText={task.taskText}
+                checked={props.checked.indexOf(task.id) !== -1}
+                handleCheck={props.handleCheck(task.id)}
+                handleEdit={props.handleEdit}
+            />
+        )
+    });
 
-    return (
-        <Grid item xs={12} sm={9}>
-            <div className="Body-taskList">
-                <Paper elevation={2}>
-                    <List >
-                        <Task
-                            orderNumber={1}
-                            checked={props.checked.indexOf(1) !== -1}
-                            handleCheck={props.handleCheck(1)}
-                            handleEdit={props.handleEdit}
-                            taskText={"Task 1"}
-                        />
-                        <Task
-                            orderNumber={2}
-                            checked={props.checked.indexOf(2) !== -1}
-                            handleCheck={props.handleCheck(2)}
-                            handleEdit={props.handleEdit}
-                            taskText={"Task 2"}
-                        />
-
-                    </List>
-                </Paper>
-            </div>
-        </Grid>
-    )
+    if (props.tasks.length === 0) {
+        return <br/>;
+    } else{
+        return (
+            <Grid item xs={12} sm={9}>
+                <div className="Body-taskList">
+                    <Paper elevation={2}>
+                        <List> { tasks } </List>
+                    </Paper>
+                </div>
+            </Grid>
+        )
+    }
 };
 
 export default taskList;
