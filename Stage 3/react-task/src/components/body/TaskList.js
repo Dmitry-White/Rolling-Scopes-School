@@ -7,7 +7,7 @@ import Task from './Task';
 
 const taskList = (props) => {
     let tasks = props.tasks.map((task) => {
-        let taskDone = (props.checked.indexOf(task.id) !== -1);
+        let taskDone = (props.doneTasks.indexOf(task.id) !== -1);
         if (!props.showDone) {
             return (
                 <Task
@@ -15,7 +15,7 @@ const taskList = (props) => {
                     id={task.id}
                     taskText={task.taskText}
                     checked={taskDone}
-                    handleCheck={props.handleCheck(task.id)}
+                    handleCheck={() => props.handleCheck(task.id)}
                     handleEdit={props.handleEdit}
                 />
             )
@@ -26,11 +26,11 @@ const taskList = (props) => {
                     id={task.id}
                     taskText={task.taskText}
                     checked={taskDone}
-                    handleCheck={props.handleCheck(task.id)}
+                    handleCheck={() => props.handleCheck(task.id)}
                     handleEdit={props.handleEdit}
                 />
             )
-        }
+        };
     });
 
     if (props.tasks.length === 0) {

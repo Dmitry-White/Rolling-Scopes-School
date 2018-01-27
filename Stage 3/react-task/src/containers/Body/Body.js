@@ -11,14 +11,16 @@ import './Body.css';
 
 class Body extends Component {
     state = {
-        categoryInput: "",
+        tasks: [],
         categories: [],
         taskInput: "",
-        tasks: [],
+        categoryInput: "",
         completed: 0,
         open: false,
-        checked: [0],
+        doneTasks: [],
     };
+
+    progressCheckTimer: number;
 
     handleCategoryInput = (e) => {
         this.setState({ categoryInput: e.target.value });
@@ -63,45 +65,48 @@ class Body extends Component {
         this.setState({ open: !this.state.open });
     };
 
-    handleCheck = value => () => {
-        const { checked } = this.state;
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
+    handleCheck = (task_id) => {
+        const doneTasks = this.state.doneTasks;
+        const currentIndex = doneTasks.indexOf(task_id);
+        const newDoneTasks = [...doneTasks];
 
         if (currentIndex === -1) {
-            newChecked.push(value);
+            newDoneTasks.push(task_id);
         } else {
-            newChecked.splice(currentIndex, 1);
+            newDoneTasks.splice(currentIndex, 1);
         }
 
         this.setState({
-            checked: newChecked,
+            doneTasks: newDoneTasks,
         });
     };
 
     handleEdit = () => {
         console.log("Edit!");
         console.log(this.state);
-    }
+    };
 
     componentDidMount() {
-        this.timer = setInterval(this.progress, 500);
-    }
+        this.progressCheckTimer = setInterval(this.progress, 500);
+    };
 
     componentWillUnmount() {
-        clearInterval(this.timer);
-    }
-
-    timer: number;
+        clearInterval(this.progressCheckTimer);
+    };
 
     progress = () => {
-        const { completed } = this.state;
-        if (completed > 100) {
-            this.setState({ completed: 0 });
-        } else {
-            const diff = Math.random() * 10;
-            this.setState({ completed: completed + diff });
+        const completed = this.state.completed;
+        const allTasks = this.state.tasks.length;
+        const doneTasks = this.state.doneTasks.length;
+        const progress = doneTasks/allTasks * 100;
+        this.setState({ completed: progress });
+        if (completed >= 100) {
+            this.tasksFinish()
         }
+    };
+
+    tasksFinish = () => {
+        console.log("Congratulations!");
     };
 
     render() {
@@ -109,7 +114,7 @@ class Body extends Component {
             <Grid item xs={12}>
                 <div className="App-body">
                     <Grid container>
-                        <ProgressBar state={this.state}/>
+                        <ProgressBar completed={this.state.completed}/>
                         <AddForm
                             name="Category"
                             categoryValue={this.state.categoryInput}
@@ -125,10 +130,10 @@ class Body extends Component {
                         <CategoryList state={this.state} open={this.handleOpen}/>
                         <TaskList
                             tasks={this.state.tasks}
-                            checked={this.state.checked}
-                            showDone={this.props.app_state.showDone}
+                            doneTasks={this.state.doneTasks}
                             handleCheck={this.handleCheck}
                             handleEdit={this.handleEdit}
+                            showDone={this.props.app_state.showDone}
                         />
                     </Grid>
                 </div>
