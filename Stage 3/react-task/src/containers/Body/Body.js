@@ -28,7 +28,8 @@ class Body extends Component {
         this.setState({ taskInput: e.target.value });
     };
 
-    handleCategoryAdd = () => {
+    handleCategoryAdd = (e) => {
+        e.preventDefault();
         if (this.state.categoryInput === "") return;
         this.setState({
             categories: [
@@ -42,7 +43,8 @@ class Body extends Component {
         });
     };
 
-    handleTaskAdd = () => {
+    handleTaskAdd = (e) => {
+        e.preventDefault();
         if (this.state.taskInput === "") return;
         this.setState({
             tasks: [
@@ -124,6 +126,7 @@ class Body extends Component {
                         <TaskList
                             tasks={this.state.tasks}
                             checked={this.state.checked}
+                            showDone={this.props.app_state.showDone}
                             handleCheck={this.handleCheck}
                             handleEdit={this.handleEdit}
                         />

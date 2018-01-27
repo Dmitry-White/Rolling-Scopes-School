@@ -28,7 +28,7 @@ const addField = (props) => {
     return (
         <Grid item xs={12} sm={sm_size}>
             <Paper elevation={2}>
-                <div className={form_class}>
+                <form className={form_class}>
                     <Grid container>
                         <Grid item xs={12} sm={text_size}>
                             <TextField
@@ -44,13 +44,14 @@ const addField = (props) => {
                                 fab
                                 mini
                                 color="primary"
-                                onClick={props.handleAdd}
+                                type="submit"
+                                onClick={(e) => props.handleAdd(e)}
                             >
                                 <Add />
                             </Button>
                         </Grid>
                     </Grid>
-                </div>
+                </form>
             </Paper>
         </Grid>
     )

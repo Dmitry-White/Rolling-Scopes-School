@@ -4,7 +4,7 @@ import { FormControlLabel } from 'material-ui/Form';
 import Visibility from 'material-ui-icons/Visibility';
 import VisibilityOff from 'material-ui-icons/VisibilityOff';
 
-const showDoneCheckbox = () => {
+const showDoneCheckbox = (props) => {
     return (
         <FormControlLabel
             control={
@@ -12,6 +12,7 @@ const showDoneCheckbox = () => {
                     icon={<VisibilityOff />}
                     checkedIcon={<Visibility />}
                     value="checkedDone"
+                    onChange={props.onShowDoneCheck}
                 />
             }
             label="Show Done"

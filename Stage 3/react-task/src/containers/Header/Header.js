@@ -24,7 +24,9 @@ class Header extends Component {
                                 >
                                     To-Do List
                                 </Typography>
-                                <ShowDoneCheckbox />
+                                <ShowDoneCheckbox
+                                    onShowDoneCheck={this.props.onShowDoneCheck}
+                                />
                                 <SearchBox />
                             </Toolbar>
                         </AppBar>
