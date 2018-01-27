@@ -6,7 +6,7 @@ import List from 'material-ui/List';
 import Task from './Task';
 
 const taskList = (props) => {
-    let tasks = props.tasks.map((task) => {
+    const tasks = props.tasks.map((task) => {
         let taskDone = (props.doneTasks.indexOf(task.id) !== -1);
         if (!props.showDone) {
             return (
@@ -15,7 +15,7 @@ const taskList = (props) => {
                     id={task.id}
                     taskText={task.taskText}
                     checked={taskDone}
-                    handleCheck={() => props.handleCheck(task.id)}
+                    handleCheck={props.handleCheck}
                     handleEdit={props.handleEdit}
                 />
             )
@@ -26,7 +26,7 @@ const taskList = (props) => {
                     id={task.id}
                     taskText={task.taskText}
                     checked={taskDone}
-                    handleCheck={() => props.handleCheck(task.id)}
+                    handleCheck={props.handleCheck}
                     handleEdit={props.handleEdit}
                 />
             )

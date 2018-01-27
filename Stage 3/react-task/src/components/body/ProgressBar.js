@@ -7,7 +7,7 @@ const progressBar = (props) => {
     return (
         <Grid item xs={12}>
             <div className="Body-progressBar">
-                <LinearProgress color="primary" mode="determinate" value={props.completed} />
+                <LinearProgress color="primary" mode="determinate" value={props.progress} />
             </div>
         </Grid>
     )

@@ -15,7 +15,7 @@ class Body extends Component {
         categories: [],
         taskInput: "",
         categoryInput: "",
-        completed: 0,
+        progress: 0,
         open: false,
         doneTasks: [],
     };
@@ -39,6 +39,7 @@ class Body extends Component {
               {
                 id:uuid(),
                 categoryText:this.state.categoryInput,
+                hasSubs: false,
               }
             ],
             categoryInput: ""
@@ -61,8 +62,25 @@ class Body extends Component {
         });
     };
 
-    handleOpen = () => {
+    handleOpenSubs = () => {
         this.setState({ open: !this.state.open });
+    };
+
+    handleRemoveCategory = (category_id) => {
+        const finalCategories = this.state.categories.filter((category) => {
+            if(category.id !== category_id) return category;
+        });
+        this.setState({ categories: finalCategories });
+    };
+
+    handleAddSub = (category_id) => {
+        const finalCategories = this.state.categories.map((category) => {
+            if(category.id === category_id) {
+                category.hasSubs = true;
+            };
+            return category;
+        });
+        this.setState({ categories: finalCategories });
     };
 
     handleCheck = (task_id) => {
@@ -95,12 +113,12 @@ class Body extends Component {
     };
 
     progress = () => {
-        const completed = this.state.completed;
+        const progress = this.state.completed;
         const allTasks = this.state.tasks.length;
         const doneTasks = this.state.doneTasks.length;
-        const progress = doneTasks/allTasks * 100;
-        this.setState({ completed: progress });
-        if (completed >= 100) {
+        const newProgress = doneTasks/allTasks * 100;
+        this.setState({ progress: newProgress });
+        if (progress >= 100) {
             this.tasksFinish()
         }
     };
@@ -114,7 +132,7 @@ class Body extends Component {
             <Grid item xs={12}>
                 <div className="App-body">
                     <Grid container>
-                        <ProgressBar completed={this.state.completed}/>
+                        <ProgressBar progress={this.state.progress}/>
                         <AddForm
                             name="Category"
                             categoryValue={this.state.categoryInput}
@@ -127,7 +145,13 @@ class Body extends Component {
                             handleInputChange={this.handleTaskInput}
                             handleAdd={this.handleTaskAdd}
                         />
-                        <CategoryList state={this.state} open={this.handleOpen}/>
+                        <CategoryList
+                            state={this.state}
+                            categories={this.state.categories}
+                            openSubs={this.handleOpenSubs}
+                            handleRemoveCategory={this.handleRemoveCategory}
+                            handleAddSub={this.handleAddSub}
+                        />
                         <TaskList
                             tasks={this.state.tasks}
                             doneTasks={this.state.doneTasks}

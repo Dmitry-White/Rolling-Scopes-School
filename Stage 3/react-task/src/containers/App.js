@@ -12,8 +12,7 @@ class App extends Component {
     };
 
     onShowDoneCheck = () => {
-        this.setState({ showDone: !this.state.showDone })
-
+        this.setState({ showDone: !this.state.showDone });
     };
 
     render() {
