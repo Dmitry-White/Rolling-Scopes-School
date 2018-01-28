@@ -1,13 +1,13 @@
 import React from 'react';
+import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 
-import { MenuList, MenuItem } from 'material-ui/Menu';
-import List, { ListItem, ListItemText } from 'material-ui/List';
-import Collapse from 'material-ui/transitions/Collapse';
+import Category from './Category';
 import ExpandLess from 'material-ui-icons/ExpandLess';
 import ExpandMore from 'material-ui-icons/ExpandMore';
-import Grid from 'material-ui/Grid';
-import Category from './Category';
+import { MenuList, MenuItem } from 'material-ui/Menu';
+import Collapse from 'material-ui/transitions/Collapse';
+import List, { ListItem, ListItemText } from 'material-ui/List';
 
 const categoryList = (props) => {
 
@@ -32,7 +32,7 @@ const categoryList = (props) => {
         return (
             <Grid item xs={12} sm={3}>
                 <div className="Body-categoryList">
-                    <Paper elevation={2}>
+                    <Paper>
                         <MenuList>
                             { categories }
                             <MenuItem>

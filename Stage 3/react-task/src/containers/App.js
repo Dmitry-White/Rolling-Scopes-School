@@ -8,7 +8,7 @@ import './App.css';
 
 class App extends Component {
     state = {
-        showDone: false
+        showDone: false,
     };
 
     onShowDoneCheck = () => {

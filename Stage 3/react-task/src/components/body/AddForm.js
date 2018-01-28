@@ -1,9 +1,10 @@
 import React from 'react';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
+
 import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
 import Add from 'material-ui-icons/Add';
+import TextField from 'material-ui/TextField';
 
 const addField = (props) => {
     var text_size, button_size, sm_size, text_placeholder,

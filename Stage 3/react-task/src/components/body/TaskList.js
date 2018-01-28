@@ -2,8 +2,8 @@ import React from 'react';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 
-import List from 'material-ui/List';
 import Task from './Task';
+import List from 'material-ui/List';
 
 const taskList = (props) => {
     const tasks = props.tasks.map((task) => {
@@ -39,7 +39,7 @@ const taskList = (props) => {
         return (
             <Grid item xs={12} sm={9}>
                 <div className="Body-taskList">
-                    <Paper elevation={2}>
+                    <Paper>
                         <List> { tasks } </List>
                     </Paper>
                 </div>

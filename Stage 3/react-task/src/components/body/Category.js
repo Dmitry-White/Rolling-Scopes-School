@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { ListItemSecondaryAction, ListItemText } from 'material-ui/List';
-import { MenuItem } from 'material-ui/Menu';
-import IconButton from 'material-ui/IconButton';
-import Delete from 'material-ui-icons/Delete';
 import Add from 'material-ui-icons/Add';
+import { MenuItem } from 'material-ui/Menu';
+import Delete from 'material-ui-icons/Delete';
+import IconButton from 'material-ui/IconButton';
 import ExpandLess from 'material-ui-icons/ExpandLess';
 import ExpandMore from 'material-ui-icons/ExpandMore';
+import { ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 
 const category = (props) => {
     if (props.hasSubs) {

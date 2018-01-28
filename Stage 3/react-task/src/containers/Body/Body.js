@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Grid from 'material-ui/Grid';
-import uuid from 'uuid';
 
-import ProgressBar from '../../components/body/ProgressBar';
+import uuid from 'uuid';
 import AddForm from '../../components/body/AddForm';
-import CategoryList from '../../components/body/CategoryList';
 import TaskList from '../../components/body/TaskList';
+import ProgressBar from '../../components/body/ProgressBar';
+import CategoryList from '../../components/body/CategoryList';
 
 import './Body.css';
 
