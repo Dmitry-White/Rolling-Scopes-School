@@ -3,10 +3,7 @@ import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 
 import Category from './Category';
-import ExpandLess from 'material-ui-icons/ExpandLess';
-import { MenuList, MenuItem } from 'material-ui/Menu';
-import Collapse from 'material-ui/transitions/Collapse';
-import List, { ListItem, ListItemText } from 'material-ui/List';
+import { MenuList } from 'material-ui/Menu';
 
 const categoryList = (props) => {
 
@@ -21,8 +18,8 @@ const categoryList = (props) => {
                 openSubs={props.openSubs}
                 hasSubs={category.hasSubs}
                 handleRemoveCategory={props.handleRemoveCategory}
-                handleRemoveSub={props.handleRemoveSub}
                 handleAddSub={props.handleAddSub}
+                handleRemoveSub={props.handleRemoveSub}
             />
         )
     });
