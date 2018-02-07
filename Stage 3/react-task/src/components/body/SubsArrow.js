@@ -5,7 +5,7 @@ import ExpandMore from 'material-ui-icons/ExpandMore';
 
 const subsArrow = (props) => {
     let arrow;
-    if (props.hasSubs) {
+    if (props.subs.length !== 0) {
         arrow = props.opened ? <ExpandLess onClick={() => props.openSubs(props.id)}/>
                              : <ExpandMore onClick={() => props.openSubs(props.id)}/>
     }

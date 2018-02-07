@@ -16,7 +16,6 @@ const categoryList = (props) => {
                 categoryText={category.categoryText}
                 subCategories={category.subCategories}
                 openSubs={props.openSubs}
-                hasSubs={category.hasSubs}
                 handleRemoveCategory={props.handleRemoveCategory}
                 handleAddSub={props.handleAddSub}
                 handleRemoveSub={props.handleRemoveSub}

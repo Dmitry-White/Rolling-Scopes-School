@@ -5,3 +5,7 @@
 .Body-addTask {
     padding: 20px;
 }
+
+.Body-menuItem:focus {
+    background-color: #E0E0E0;
+}

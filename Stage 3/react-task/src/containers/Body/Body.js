@@ -32,13 +32,15 @@ class Body extends Component {
     handleCategoryAdd = (e) => {
         e.preventDefault();
         if (this.state.categoryInput === "") return;
+        this.state.categories.map((category) => {
+            if(category.categoryText === this.state.categoryInput) return;
+        });
         this.setState({
             categories: [
               ...this.state.categories,
               {
                 id:uuid(),
                 categoryText:this.state.categoryInput,
-                hasSubs: false,
                 subCategories: [],
                 opened: false,
               }
@@ -50,6 +52,9 @@ class Body extends Component {
     handleTaskAdd = (e) => {
         e.preventDefault();
         if (this.state.taskInput === "") return;
+        this.state.tasks.map((task) => {
+            if(task.taskText === this.state.taskInput) return;
+        });
         this.setState({
             tasks: [
               ...this.state.tasks,
@@ -83,7 +88,6 @@ class Body extends Component {
     handleAddSub = (category_id) => {
         const finalCategories = this.state.categories.map((category) => {
             if(category.id === category_id) {
-                category.hasSubs = true;
                 category.subCategories = [
                   ...category.subCategories,
                   {

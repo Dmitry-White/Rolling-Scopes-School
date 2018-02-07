@@ -25,10 +25,10 @@ const category = (props) => {
 
     return (
         <div>
-            <MenuItem >
+            <MenuItem className="Body-menuItem">
                 <SubsArrow
                     id={props.id}
-                    hasSubs={props.hasSubs}
+                    subs={props.subCategories}
                     openSubs={props.openSubs}
                     opened={props.opened}
                 />
