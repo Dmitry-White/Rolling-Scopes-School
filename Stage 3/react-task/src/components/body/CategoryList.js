@@ -4,7 +4,6 @@ import Paper from 'material-ui/Paper';
 
 import Category from './Category';
 import ExpandLess from 'material-ui-icons/ExpandLess';
-import ExpandMore from 'material-ui-icons/ExpandMore';
 import { MenuList, MenuItem } from 'material-ui/Menu';
 import Collapse from 'material-ui/transitions/Collapse';
 import List, { ListItem, ListItemText } from 'material-ui/List';
@@ -14,13 +13,15 @@ const categoryList = (props) => {
     const categories = props.categories.map((category) => {
         return (
             <Category
-                state={props.state}
                 key={category.id}
                 id={category.id}
+                opened={category.opened}
                 categoryText={category.categoryText}
+                subCategories={category.subCategories}
                 openSubs={props.openSubs}
                 hasSubs={category.hasSubs}
                 handleRemoveCategory={props.handleRemoveCategory}
+                handleRemoveSub={props.handleRemoveSub}
                 handleAddSub={props.handleAddSub}
             />
         )
@@ -35,18 +36,6 @@ const categoryList = (props) => {
                     <Paper>
                         <MenuList>
                             { categories }
-                            <MenuItem>
-                                {props.state.open ? <ExpandLess onClick={props.openSubs}/>
-                                                  : <ExpandMore onClick={props.openSubs}/>}
-                                <ListItemText  inset primary="Category 3" />
-                            </MenuItem>
-                            <Collapse component="li" in={props.state.open} timeout="auto" unmountOnExit>
-                                <List disablePadding>
-                                    <ListItem button>
-                                        <ListItemText inset primary="Category 3 1" />
-                                    </ListItem>
-                                </List>
-                            </Collapse>
                         </MenuList>
                     </Paper>
                 </div>

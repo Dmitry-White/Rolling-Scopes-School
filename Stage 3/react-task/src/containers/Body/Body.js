@@ -16,7 +16,6 @@ class Body extends Component {
         taskInput: "",
         categoryInput: "",
         progress: 0,
-        open: false,
         doneTasks: [],
     };
 
@@ -40,6 +39,8 @@ class Body extends Component {
                 id:uuid(),
                 categoryText:this.state.categoryInput,
                 hasSubs: false,
+                subCategories: [],
+                opened: false,
               }
             ],
             categoryInput: ""
@@ -62,8 +63,14 @@ class Body extends Component {
         });
     };
 
-    handleOpenSubs = () => {
-        this.setState({ open: !this.state.open });
+    handleOpenSubs = (category_id) => {
+        const finalCategories = this.state.categories.map((category) => {
+            if(category.id === category_id) {
+                category.opened = !category.opened;
+            };
+            return category;
+        });
+        this.setState({ categories: finalCategories });
     };
 
     handleRemoveCategory = (category_id) => {
@@ -77,16 +84,46 @@ class Body extends Component {
         const finalCategories = this.state.categories.map((category) => {
             if(category.id === category_id) {
                 category.hasSubs = true;
+                category.subCategories = [
+                  ...category.subCategories,
+                  {
+                    id:uuid(),
+                    subCategoryText: category.categoryText
+                                    + " "
+                                    + (category.subCategories.length + 1),
+                  }
+                ]
             };
             return category;
         });
         this.setState({ categories: finalCategories });
     };
 
+    handleRemoveSub = (category_id, subCategory_id) => {
+        const finalCategories = this.state.categories.map((category) => {
+            let tempSubs = category.subCategories;
+            if(category.id === category_id) {
+                tempSubs = category.subCategories.filter((subCategory) => {
+                    if(subCategory.id !== subCategory_id) return subCategory;
+                });
+            };
+            category.subCategories = tempSubs;
+            return category;
+        });
+        this.setState({ categories : finalCategories});
+    };
+
     handleCheck = (task_id) => {
         const doneTasks = this.state.doneTasks;
         const currentIndex = doneTasks.indexOf(task_id);
         const newDoneTasks = [...doneTasks];
+
+        const finalTasks = this.state.tasks.map((task) => {
+            if(task.id === task_id) {
+                task.checked = !task.checked;
+            };
+            return task;
+        });
 
         if (currentIndex === -1) {
             newDoneTasks.push(task_id);
@@ -95,6 +132,7 @@ class Body extends Component {
         }
 
         this.setState({
+            tasks: finalTasks,
             doneTasks: newDoneTasks,
         });
     };
@@ -113,7 +151,7 @@ class Body extends Component {
     };
 
     progress = () => {
-        const progress = this.state.completed;
+        const progress = this.state.progress;
         const allTasks = this.state.tasks.length;
         const doneTasks = this.state.doneTasks.length;
         const newProgress = doneTasks/allTasks * 100;
@@ -151,6 +189,7 @@ class Body extends Component {
                             openSubs={this.handleOpenSubs}
                             handleRemoveCategory={this.handleRemoveCategory}
                             handleAddSub={this.handleAddSub}
+                            handleRemoveSub={this.handleRemoveSub}
                         />
                         <TaskList
                             tasks={this.state.tasks}
