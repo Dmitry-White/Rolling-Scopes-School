@@ -1,11 +1,15 @@
-.Body-addCategory {
+.Body {
+    width: 100%;
+}
+
+.addCategory {
     padding: 20px;
 }
 
-.Body-addTask {
+.addTask {
     padding: 20px;
 }
 
-.Body-menuItem:focus {
+.menuItem:focus {
     background-color: #E0E0E0;
 }

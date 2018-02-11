@@ -8,32 +8,28 @@ import Typography from 'material-ui/Typography';
 import SearchBox from '../../components/header/SearchBox';
 import ShowDoneCheckbox from '../../components/header/ShowDoneCheckbox';
 
-import './Header.css';
+import classes from './Header.module.css';
 
 class Header extends Component {
     render() {
-        return(
-            <Grid item xs={12}>
-                <div className="App-header">
-                    <Paper>
-                        <AppBar position="static" color="inherit">
-                            <Toolbar>
-                                <Typography
-                                    type="title"
-                                    className="Header-title"
-                                >
-                                    To-Do List
-                                </Typography>
-                                <ShowDoneCheckbox
-                                    onShowDoneCheck={this.props.onShowDoneCheck}
-                                />
-                                <SearchBox />
-                            </Toolbar>
-                        </AppBar>
-                    </Paper>
-                </div>
-            </Grid>
-        );
+        return <Grid item xs={12} className={classes.Header}>
+            <Paper>
+                <AppBar position="static" color="inherit">
+                    <Toolbar>
+                        <Typography
+                            type="title"
+                            className={classes.title}
+                        >
+                            To-Do List
+                        </Typography>
+                        <ShowDoneCheckbox
+                            onShowDoneCheck={this.props.onShowDoneCheck}
+                        />
+                        <SearchBox />
+                    </Toolbar>
+                </AppBar>
+            </Paper>
+        </Grid>
     };
 }
 

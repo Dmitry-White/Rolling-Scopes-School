@@ -4,16 +4,10 @@ import Paper from 'material-ui/Paper';
 import { LinearProgress } from 'material-ui/Progress';
 
 
-const progressBar = (props) => {
-    return (
-        <Grid item xs={12}>
-            <div className="Body-progressBar">
-                <Paper>
-                    <LinearProgress color="primary" mode="determinate" value={props.progress} />
-                </Paper>
-            </div>
-        </Grid>
-    )
-};
+const progressBar = props => <Grid item xs={12}>
+    <Paper>
+        <LinearProgress color="primary" variant="determinate" value={props.progress} />
+    </Paper>
+</Grid>
 
 export default progressBar;

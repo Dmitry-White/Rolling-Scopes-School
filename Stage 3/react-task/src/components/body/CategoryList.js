@@ -3,40 +3,30 @@ import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 
 import Category from './Category';
-import { MenuList } from 'material-ui/Menu';
+import List from 'material-ui/List';
 
-const categoryList = (props) => {
-
-    const categories = props.categories.map((category) => {
-        return (
-            <Category
-                key={category.id}
-                id={category.id}
-                opened={category.opened}
-                categoryText={category.categoryText}
-                subCategories={category.subCategories}
-                openSubs={props.openSubs}
-                handleRemoveCategory={props.handleRemoveCategory}
-                handleAddSub={props.handleAddSub}
-                handleRemoveSub={props.handleRemoveSub}
-            />
-        )
-    });
+const categoryList = props => {
+    const categories = props.categories.map(category => <Category
+        key={category.id}
+        id={category.id}
+        menuItemClass={props.menuItemClass}
+        opened={category.opened}
+        categoryText={category.categoryText}
+        subCategories={category.subCategories}
+        openSubs={props.openSubs}
+        handleRemoveCategory={props.handleRemoveCategory}
+        handleAddSub={props.handleAddSub}
+        handleRemoveSub={props.handleRemoveSub}
+    />);
 
     if (props.categories.length === 0) {
-        return <br/>;
-    } else{
-        return (
-            <Grid item xs={12} sm={3}>
-                <div className="Body-categoryList">
-                    <Paper>
-                        <MenuList>
-                            { categories }
-                        </MenuList>
-                    </Paper>
-                </div>
-            </Grid>
-        )
+        return null;
+    } else {
+        return <Grid item xs={12} sm={3}>
+            <Paper>
+                <List>{ categories }</List>
+            </Paper>
+        </Grid>
     }
 };
 

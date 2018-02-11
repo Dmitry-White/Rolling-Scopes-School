@@ -7,7 +7,7 @@ import TaskList from '../../components/body/TaskList';
 import ProgressBar from '../../components/body/ProgressBar';
 import CategoryList from '../../components/body/CategoryList';
 
-import './Body.css';
+import classes from './Body.module.css';
 
 class Body extends Component {
     state = {
@@ -21,20 +21,16 @@ class Body extends Component {
 
     progressCheckTimer: number;
 
-    handleCategoryInput = (e) => {
-        this.setState({ categoryInput: e.target.value });
-    };
+    handleCategoryInput = e => this.setState({ categoryInput: e.target.value });
 
-    handleTaskInput = (e) => {
-        this.setState({ taskInput: e.target.value });
-    };
+    handleTaskInput = e => this.setState({ taskInput: e.target.value });
 
-    handleCategoryAdd = (e) => {
+    handleCategoryAdd = e => {
         e.preventDefault();
-        if (this.state.categoryInput === "") return;
-        this.state.categories.map((category) => {
+        if (this.state.categoryInput === "") return null;
+        /*this.state.categories.map(category => {
             if(category.categoryText === this.state.categoryInput) return;
-        });
+        });*/
         this.setState({
             categories: [
               ...this.state.categories,
@@ -49,12 +45,12 @@ class Body extends Component {
         });
     };
 
-    handleTaskAdd = (e) => {
+    handleTaskAdd = e => {
         e.preventDefault();
-        if (this.state.taskInput === "") return;
-        this.state.tasks.map((task) => {
+        if (this.state.taskInput === "") return null;
+        /*this.state.tasks.map((task) => {
             if(task.taskText === this.state.taskInput) return;
-        });
+        });*/
         this.setState({
             tasks: [
               ...this.state.tasks,
@@ -69,24 +65,23 @@ class Body extends Component {
     };
 
     handleOpenSubs = (category_id) => {
-        const finalCategories = this.state.categories.map((category) => {
-            if(category.id === category_id) {
-                category.opened = !category.opened;
-            };
+        const finalCategories = this.state.categories.map(category => {
+            if(category.id === category_id) category.opened = !category.opened;
             return category;
         });
         this.setState({ categories: finalCategories });
     };
 
-    handleRemoveCategory = (category_id) => {
-        const finalCategories = this.state.categories.filter((category) => {
+    handleRemoveCategory = category_id => {
+        const finalCategories = this.state.categories.filter(category => {
             if(category.id !== category_id) return category;
+            return null;
         });
         this.setState({ categories: finalCategories });
     };
 
-    handleAddSub = (category_id) => {
-        const finalCategories = this.state.categories.map((category) => {
+    handleAddSub = category_id => {
+        const finalCategories = this.state.categories.map(category => {
             if(category.id === category_id) {
                 category.subCategories = [
                   ...category.subCategories,
@@ -104,36 +99,32 @@ class Body extends Component {
     };
 
     handleRemoveSub = (category_id, subCategory_id) => {
-        const finalCategories = this.state.categories.map((category) => {
+        const finalCategories = this.state.categories.map(category => {
             let tempSubs = category.subCategories;
             if(category.id === category_id) {
-                tempSubs = category.subCategories.filter((subCategory) => {
+                tempSubs = category.subCategories.filter(subCategory => {
                     if(subCategory.id !== subCategory_id) return subCategory;
+                    return null;
                 });
             };
             category.subCategories = tempSubs;
             return category;
         });
-        this.setState({ categories : finalCategories});
+        this.setState({ categories: finalCategories });
     };
 
-    handleCheck = (task_id) => {
+    handleCheck = task_id => {
         const doneTasks = this.state.doneTasks;
         const currentIndex = doneTasks.indexOf(task_id);
         const newDoneTasks = [...doneTasks];
 
-        const finalTasks = this.state.tasks.map((task) => {
-            if(task.id === task_id) {
-                task.checked = !task.checked;
-            };
+        const finalTasks = this.state.tasks.map(task => {
+            if(task.id === task_id) task.checked = !task.checked;
             return task;
         });
 
-        if (currentIndex === -1) {
-            newDoneTasks.push(task_id);
-        } else {
-            newDoneTasks.splice(currentIndex, 1);
-        }
+        currentIndex === -1 ? newDoneTasks.push(task_id)
+                            : newDoneTasks.splice(currentIndex, 1);
 
         this.setState({
             tasks: finalTasks,
@@ -170,42 +161,41 @@ class Body extends Component {
     };
 
     render() {
-        return (
-            <Grid item xs={12}>
-                <div className="App-body">
-                    <Grid container>
-                        <ProgressBar progress={this.state.progress}/>
-                        <AddForm
-                            name="Category"
-                            categoryValue={this.state.categoryInput}
-                            handleInputChange={this.handleCategoryInput}
-                            handleAdd={this.handleCategoryAdd}
-                        />
-                        <AddForm
-                            name="Task"
-                            taskValue={this.state.taskInput}
-                            handleInputChange={this.handleTaskInput}
-                            handleAdd={this.handleTaskAdd}
-                        />
-                        <CategoryList
-                            state={this.state}
-                            categories={this.state.categories}
-                            openSubs={this.handleOpenSubs}
-                            handleRemoveCategory={this.handleRemoveCategory}
-                            handleAddSub={this.handleAddSub}
-                            handleRemoveSub={this.handleRemoveSub}
-                        />
-                        <TaskList
-                            tasks={this.state.tasks}
-                            doneTasks={this.state.doneTasks}
-                            handleCheck={this.handleCheck}
-                            handleEdit={this.handleEdit}
-                            showDone={this.props.app_state.showDone}
-                        />
-                    </Grid>
-                </div>
+        return <Grid item xs={12} className={classes.Body}>
+            <Grid container>
+                <ProgressBar progress={this.state.progress}/>
+                <AddForm
+                    name="Category"
+                    categoryClass={classes.addCategory}
+                    categoryValue={this.state.categoryInput}
+                    handleInputChange={this.handleCategoryInput}
+                    handleAdd={this.handleCategoryAdd}
+                />
+                <AddForm
+                    name="Task"
+                    taskClass={classes.addTask}
+                    taskValue={this.state.taskInput}
+                    handleInputChange={this.handleTaskInput}
+                    handleAdd={this.handleTaskAdd}
+                />
+                <CategoryList
+                    state={this.state}
+                    menuItemClass={classes.menuItem}
+                    categories={this.state.categories}
+                    openSubs={this.handleOpenSubs}
+                    handleRemoveCategory={this.handleRemoveCategory}
+                    handleAddSub={this.handleAddSub}
+                    handleRemoveSub={this.handleRemoveSub}
+                />
+                <TaskList
+                    tasks={this.state.tasks}
+                    doneTasks={this.state.doneTasks}
+                    handleCheck={this.handleCheck}
+                    handleEdit={this.handleEdit}
+                    showDone={this.props.app_state.showDone}
+                />
             </Grid>
-        );
+        </Grid>
     };
 }
 
