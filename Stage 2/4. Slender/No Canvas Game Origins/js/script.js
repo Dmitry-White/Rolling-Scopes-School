@@ -2,6 +2,8 @@
 var $ = function(id) { return document.getElementById(id); };
 var dc = function(tag) { return document.createElement(tag); };
 
+var CIRCLE = Math.PI * 2;
+
 var map = [
 	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],   // 0
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],   // 1
@@ -519,6 +521,13 @@ function initScreen() {
 
 // bind keyboard events to game functions (movement, etc)
 function bindKeys() {
+
+	document.onmousemove = function(e) {
+		console.log("!")
+        const x = (e.movementX || e.mozMovementX || e.webkitMovementX || 0);
+        if (x > 0) player.dir = (player.dir + Math.PI/80) % (CIRCLE);
+        if (x < 0) player.dir = (player.dir - Math.PI/80) % (CIRCLE);
+    };
 
 	document.onkeydown = function(e) {
 		e = e || window.event;
