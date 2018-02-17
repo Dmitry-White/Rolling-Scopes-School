@@ -18,9 +18,9 @@
 </div>
 
 ## Description
-A pseudo 3D game with HTML5 Canvas, CoreJS and Raycasting
 <br/>
 <div align="center">
+  A pseudo 3D game with HTML5 Canvas, CoreJS and Raycasting
   <img width="200" height="107" src="img/screens/img1.jpg" />
   <img width="200" height="107" src="img/screens/img2.jpg" />
   <img width="200" height="107" src="img/screens/img3.jpg" />
