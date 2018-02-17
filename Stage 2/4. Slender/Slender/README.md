@@ -17,17 +17,14 @@
   <a href="https://dmitry-white.github.io/Slender/"><img src="img/play.png" /></a>
 </div>
 
-<br/>
-
-<div align="center">
-  <a><img width="200" height="107" src="img/screens/img1.jpg" /></a>
-  <a><img width="200" height="107" src="img/screens/img2.jpg" /></a>
-  <a><img width="200" height="107" src="img/screens/img3.jpg" /></a>
-</div>
-
- 
 ## Description
 A pseudo 3D game with HTML5 Canvas, CoreJS and Raycasting
+<br/>
+<div align="center">
+  <img width="200" height="107" src="img/screens/img1.jpg" />
+  <img width="200" height="107" src="img/screens/img2.jpg" />
+  <img width="200" height="107" src="img/screens/img3.jpg" />
+</div>
 
 ## Story
 In vanilla Slender game all you have to do, as human, is to collect eight pieces of paper scattered among trees and bushes.
