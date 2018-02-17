@@ -14,19 +14,23 @@
 ![forthebadge](http://forthebadge.com/images/badges/designed-in-ms-paint.svg)
 ![forthebadge](http://forthebadge.com/images/badges/fo-real.svg)
 
-<br/>
-
 <div align="center">
   <a href="https://dmitry-white.github.io/Flip-This-Sheet/"><img src="img/play.png" /></a>
 </div>
 
-
 ## Description
-A small game, where you simply match cards for a given time.
+<div align="center">
+  A small game, where you simply match cards for a given time.  
+  <br/>
+  <br/>
+  <img width="200" height="107" src="img/img1.png" />
+  <img width="200" height="107" src="img/img2.png" />
+  <img width="200" height="107" src="img/img3.png" />
+</div>
 
 ## Story
 "Alright, William. After years of severe training and learning you're finally ready for this important task!
-Get your brains working and apply all the knowledge that you've got on Operational Systems - especially, Bill, ESPECIALLY!!! on icons. So focus, soldier, cause it's not that easy-peasy as shooting fancy guns of yours, this is SERIOUS business! And keep in mind that there's a small-for-no-reason timer up above the game field, to keep your sweet as... well... to hurry you up a bit. So don't let your people down, they're counting on you! GO FLIP THAT SHEET!"
+Get your brains working and apply all the knowledge that you've got on Operational Systems - especially, Bill, ESPECIALLY!!! on icons. So focus, soldier, cause it's not that easy peasy as shooting fancy guns of yours, this is SERIOUS business! And keep in mind that there's a small-for-no-reason timer up above the game field, to keep your sweet as... well... to hurry you up a bit. So don't let your people down, they're counting on you! GO FLIP THAT SHEET!"
 
 ### Local Usage
 ```
@@ -40,4 +44,4 @@ npm run game
 * [MMenavas](https://github.com/mmenavas/memory-game) - Fruit Matcher. HTML5, CSS3 and Javascript memory game.
 
 ## License
-This project is licensed under the MIT License
+This project is licensed under the MIT License.
