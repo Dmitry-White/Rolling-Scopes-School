@@ -20,9 +20,9 @@
 <br/>
 
 <div align="center">
-  <img width="200" height="107" style="pointer-events: none; cursor: default;" src="img/screens/img1.jpg" />
-  <img width="200" height="107" style="pointer-events: none; cursor: default;" src="img/screens/img2.jpg" />
-  <img width="200" height="107" style="pointer-events: none; cursor: default;" src="img/screens/img3.jpg" />
+  <a><img width="200" height="107" src="img/screens/img1.jpg" /></a>
+  <a><img width="200" height="107" src="img/screens/img2.jpg" /></a>
+  <a><img width="200" height="107" src="img/screens/img3.jpg" /></a>
 </div>
 
  
