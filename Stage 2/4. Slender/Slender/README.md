@@ -20,8 +20,8 @@
 <br/>
 
 <div align="center">
-  <img style="margin-right: 10px" src="img/screens/img1.jpg" />
-  <img style="margin-right: 10px" src="img/screens/img2.jpg" />
+  <img src="img/screens/img1.jpg" />
+  <img src="img/screens/img2.jpg" />
   <img src="img/screens/img3.jpg" />
 </div>
 
