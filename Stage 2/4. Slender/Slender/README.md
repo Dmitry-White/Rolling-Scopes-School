@@ -17,6 +17,14 @@
   <a href="https://dmitry-white.github.io/Slender/"><img src="img/play.png" /></a>
 </div>
 
+<br/>
+
+<div align="center">
+  <img style="margin-right: 10px" src="img/screens/img1.jpg" />
+  <img style="margin-right: 10px" src="img/screens/img2.jpg" />
+  <img src="img/screens/img3.jpg" />
+</div>
+
  
 ## Description
 A pseudo 3D game with HTML5 Canvas, CoreJS and Raycasting
